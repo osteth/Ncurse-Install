@@ -47,7 +47,7 @@ function checkNeededPackages()
 
 function main_setservername()
 {
-    cmd=(dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --inputbox "Please enter the URL of your Owncloud server." 22 76 $__servername)
+    cmd=(dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --inputbox "Please enter the URL of your Owncloud server." 22 76 $__servername)
     choices=$("${cmd[@]}" 2>&1 >/dev/tty)    
     if [ "$choices" != "" ]; then
         __servername=$choices
@@ -1494,7 +1494,7 @@ verb 3" > /etc/openvpn/client-common.txt
 fi
 
 clear
-dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Finished installing OpenVPN." 20 60
+dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished installing OpenVPN." 20 60
 }
 
 
@@ -1515,7 +1515,7 @@ echo "30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.lo
 crontab mycron
 rm mycron
 
-dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Finished installing Lets Ecnrypt." 20 60
+dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished installing Lets Ecnrypt." 20 60
 
 
 }
@@ -1523,7 +1523,7 @@ dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Finished in
 function main_update()
 {
 
-    dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Finished upgrading Owncloud instance." 20 60    
+    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished upgrading Owncloud instance." 20 60    
 }
 
 function main_updatescript()
@@ -1531,13 +1531,13 @@ function main_updatescript()
   scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   pushd $scriptdir
   if [[ ! -d .git ]]; then
-    dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Cannot find direcotry '.git'. Please clone the OwncloudPie script via 'git clone git://github.com/petrockblog/OwncloudPie.git'" 20 60    
+    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Cannot find direcotry '.git'. Please clone the OwncloudPie script via 'git clone git://github.com/petrockblog/OwncloudPie.git'" 20 60    
     popd
     return
   fi
   git pull
   popd
-  dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --msgbox "Fetched the latest version of the OwncloudPie script. You need to restart the script." 20 60    
+  dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Fetched the latest version of the OwncloudPie script. You need to restart the script." 20 60    
 }
 
 
@@ -1558,7 +1558,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 while true; do
-    cmd=(dialog --backtitle "PetRockBlock.com - OwncloudPie Setup." --menu "You MUST set the server URL (e.g., 192.168.0.10 or myaddress.dyndns.org) before starting one of the installation routines. Choose task:" 22 76 16)
+    cmd=(dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --menu "You MUST set the server URL (e.g., 192.168.0.10 or myaddress.dyndns.org) before starting one of the installation routines. Choose task:" 22 76 16)
     options=(1 "Set server URL ($__servername)"
              2 "Install OnlyOffice"
              3 "Install OwnCloud"
