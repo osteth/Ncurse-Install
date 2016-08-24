@@ -1093,10 +1093,18 @@ start_installation
 
 }
 
-function install-owncloud()
+function install-jitsi()
 {
 clear
-echo "finish the owncloud script you slacker!!!"
+apt-get install git nginx npm nodejs-legacy make -y
+cd /var/www/html
+git clone https://github.com/jitsi/jitsi-meet.git
+mv jitsi-meet/ meet
+cd meet
+npm install
+make
+
+echo "finish the jitsi script you slacker!!!"
 
 }
 
@@ -1522,8 +1530,8 @@ dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finishe
 
 function main_update()
 {
-
-    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished upgrading Owncloud instance." 20 60    
+	#will eventually pull down and run a git repo to make updates to the server.
+    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished upgrading server instance." 20 60    
 }
 
 function main_updatescript()
@@ -1561,7 +1569,7 @@ while true; do
     cmd=(dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --menu "You MUST set the server URL (e.g., 192.168.0.10 or myaddress.dyndns.org) before starting one of the installation routines. Choose task:" 22 76 16)
     options=(1 "Set server URL ($__servername)"
              2 "Install OnlyOffice"
-             3 "Install OwnCloud"
+             3 "Install Jitsi"
              4 "Install Open-VPN"
              5 "Install Lets Encrypt"
              6 "Perform Server Updates"
@@ -1571,7 +1579,7 @@ while true; do
         case $choice in
             1) main_setservername ;;
             2) install-onlyoffice ;;
-            3) install-owncloud ;;
+            3) install-jitsi ;;
             4) install-openvpn ;;
             5) install-letsencrypt ;;
             6) main_update ;;
