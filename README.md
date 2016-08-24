@@ -12,5 +12,5 @@ This is a script for building out new servers with a suit of teamworking softwar
 
 >Let's Encrypt: Free SSL certificate autority
 
-![server build diagram](https://raw.githubusercontent.com/osteth/Ncurse-Install/blob/master/build-diagram.png)
+![server build diagram](https://github.com/osteth/Ncurse-Install/blob/master/build-diagram.png)
 
