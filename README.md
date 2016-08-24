@@ -11,3 +11,6 @@ This is a script for building out new servers with a suit of teamworking softwar
 >OpenVPN: self hosted VPN solution
 
 >Let's Encrypt: Free SSL certificate autority
+
+![server build diagram](https://raw.githubusercontent.com/osteth/Ncurse-Install/build-diagram.png)
+
