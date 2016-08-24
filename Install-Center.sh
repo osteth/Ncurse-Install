@@ -1108,6 +1108,15 @@ echo "finish the jitsi script you slacker!!!"
 
 }
 
+function install-gitlab()
+{
+clear
+sudo apt-get install curl openssh-server ca-certificates postfix -y
+curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+sudo apt-get install gitlab-ce
+sudo gitlab-ctl reconfigure
+}
+
 function install-openvpn()
 {
 #!/bin/bash
@@ -1505,7 +1514,6 @@ clear
 dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Finished installing OpenVPN." 20 60
 }
 
-
 function install-letsencrypt()
 {
 
@@ -1570,20 +1578,22 @@ while true; do
     options=(1 "Set server URL ($__servername)"
              2 "Install OnlyOffice"
              3 "Install Jitsi"
-             4 "Install Open-VPN"
-             5 "Install Lets Encrypt"
-             6 "Perform Server Updates"
-             7 "Update OwncloudPie script")
+			 4 "Install Git-Lab"
+             5 "Install Open-VPN"
+             6 "Install Lets Encrypt"
+             7 "Perform Server Updates"
+             8 "Update OwncloudPie script")
     choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)    
     if [ "$choice" != "" ]; then
         case $choice in
             1) main_setservername ;;
             2) install-onlyoffice ;;
             3) install-jitsi ;;
-            4) install-openvpn ;;
-            5) install-letsencrypt ;;
-            6) main_update ;;
-            7) main_updatescript ;;
+			4) install-gitlab ;;
+            5) install-openvpn ;;
+            6) install-letsencrypt ;;
+            7) main_update ;;
+            8) main_updatescript ;;
         esac
     else
         break
