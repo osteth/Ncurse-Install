@@ -1547,13 +1547,13 @@ function main_updatescript()
   scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   pushd $scriptdir
   if [[ ! -d .git ]]; then
-    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Cannot find direcotry '.git'. Please clone the OwncloudPie script via 'git clone git://github.com/petrockblog/OwncloudPie.git'" 20 60    
+    dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Cannot find direcotry '.git'. Please clone the Ncurse Install Center script via 'git clone https://github.com/osteth/Ncurse-Install.git'" 20 60    
     popd
     return
   fi
   git pull
   popd
-  dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Fetched the latest version of the OwncloudPie script. You need to restart the script." 20 60    
+  dialog --backtitle "sethwahle.com - Ncurse Installer Utility." --msgbox "Fetched the latest version of the Ncurse Install Center script. You need to restart the script." 20 60    
 }
 
 
@@ -1569,7 +1569,7 @@ else
 fi
 
 if [ $(id -u) -ne 0 ]; then
-  printf "Script must be run as root. Try 'sudo ./OwncloudPie_setup'\n"
+  printf "Script must be run as root. Try 'sudo ./install-center.sh'\n"
   exit 1
 fi
 
@@ -1582,7 +1582,7 @@ while true; do
              5 "Install Open-VPN"
              6 "Install Lets Encrypt"
              7 "Perform Server Updates"
-             8 "Update OwncloudPie script")
+             8 "Update Ncurse Instal Center script")
     choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)    
     if [ "$choice" != "" ]; then
         case $choice in
